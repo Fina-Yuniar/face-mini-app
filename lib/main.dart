@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/chat_screen.dart';
-import 'login_screen.dart';
-import 'register_screen.dart';
-import 'home_screen.dart';
-import 'comment_feed_screen.dart';
-import 'profile_screen.dart';
-import 'chat_messenger_screen.dart';
-import 'group_screen.dart';
+import 'package:myapp/screens/chat_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/group_screen.dart';
 
 // Fina Yuniar - 411211180
 // Djihan Al Madani - 411211052
@@ -25,22 +23,33 @@ class MyApp extends StatelessWidget {
       title: 'FaceMini App UI Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue, // Background color for AppBar
+          iconTheme: IconThemeData(color: Colors.white), // Icon color
+          titleTextStyle: TextStyle(
+            color: Colors.white, // Text color
+            fontSize: 20, // Font size for title
+            fontWeight: FontWeight.bold, // Font weight for title
+          ),
+        ),
         primarySwatch: Colors.blue,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
+              backgroundColor: Colors.blue, foregroundColor: Colors.white),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.blue, // Text color for TextButton
           ),
         ),
       ),
-      home: const LoginScreen(),
+      home: LoginScreen(),
       routes: {
-        '/login': (context) => const LoginScreen(),
-        '/register': (context) => const RegisterScreen(),
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
         '/home': (context) => const HomeScreen(),
-        '/comments': (context) => const CommentFeedScreen(),
         '/profile': (context) => const ProfileScreen(),
-        '/chat': (context) => ChatScreen(),
-        '/chat_messenger': (context) => const ChatMessengerScreen(),
+        '/chat': (context) => const ChatScreen(),
         '/groups': (context) => const GroupScreen(),
       },
     );
